@@ -1,0 +1,121 @@
+# Phase 1: Sentinel Terrain AI — Frontend Foundation
+
+You are working on an existing Replit project for **Sentinel Terrain AI**, an AI-powered landslide risk assessment and early-warning platform for an IBM Hackathon.
+
+Your task is to complete Phase 1 only: inspect the existing project, establish a clean frontend foundation, and implement the core design system and responsive application shell.
+
+## 1. Inspect before changing anything
+
+- Inspect the current project files, package.json, installed dependencies, routing, styling setup, and existing application.
+- Identify the framework and tools already configured.
+- Reuse existing working code wherever possible.
+- Do not delete or replace the project with a fresh template.
+- Do not overwrite existing functionality without a clear reason.
+- If React, Vite, or Tailwind CSS is already configured, preserve the working configuration.
+
+## 2. Required technology stack
+
+Use:
+- React with Vite
+- JavaScript ES6+
+- Tailwind CSS
+- React Router
+- Lucide React icons
+
+Install only missing dependencies. Avoid unnecessary libraries.
+
+## 3. Establish the design system
+
+Create a professional disaster-management and geospatial intelligence interface.
+
+Visual direction:
+- Dark navy sidebar.
+- Clean light-gray or off-white workspace.
+- Blue primary actions and active navigation.
+- Green for low risk.
+- Yellow/amber for moderate risk.
+- Orange/red for high risk.
+- Dark red for critical risk.
+- Consistent spacing, typography, borders, card radii, and subtle shadows.
+- Clear information hierarchy and accessible contrast.
+- Avoid excessive gradients, unnecessary animations, and clutter.
+
+Define reusable theme tokens or Tailwind theme variables for colors, backgrounds, borders, text, and risk levels. Do not scatter inconsistent color values across components.
+
+## 4. Build the reusable application shell
+
+Implement:
+- A left sidebar with Sentinel Terrain AI branding.
+- Navigation items for Dashboard, GIS Risk Map, Risk Assessment, Alerts, Field Reports, Analytics, Satellite Changes, and Settings/About.
+- A header with page title or breadcrumb area, notification icon, and demo-user profile.
+- A main content area with consistent spacing.
+- A responsive mobile navigation pattern.
+- Active navigation styling.
+- A mobile sidebar toggle that works correctly.
+- A clear DEMO MODE indicator.
+
+Use Lucide React icons and reusable layout components.
+
+The navigation should use React Router. Create a minimal placeholder page for each route if one does not already exist. Keep the placeholders simple; do not implement the full page features yet.
+
+Suggested routes:
+- `/` — Dashboard
+- `/map` — GIS Risk Map
+- `/assessment` — Risk Assessment
+- `/alerts` — Alerts
+- `/reports` — Field Reports
+- `/analytics` — Analytics
+- `/satellite` — Satellite Changes
+- `/settings` — Settings/About
+
+## 5. Code organization
+
+Reuse or adapt the existing structure. Where appropriate, organize code into:
+- `src/components/layout/`
+- `src/components/common/`
+- `src/pages/`
+- `src/services/api/`
+- `src/services/mock/`
+- `src/hooks/`
+- `src/utils/`
+- `src/constants/`
+
+Keep components reusable and responsibilities separated.
+
+Do not implement backend requests, machine-learning predictions, authentication, or complex dashboard functionality in this phase.
+
+## 6. Quality requirements
+
+- The existing app must continue to run.
+- All navigation routes must render correctly.
+- No broken imports or missing components.
+- Responsive layout must work on desktop, tablet, and mobile.
+- Buttons and navigation controls must perform their intended actions.
+- Avoid horizontal overflow on mobile.
+- Use semantic HTML and keyboard-accessible controls.
+- Do not add fake live statistics or claim real alerts.
+- Do not modify or create the separate Flask backend.
+- Preserve unrelated existing files and project functionality.
+
+## 7. Verification
+
+After implementation:
+1. Run the application using the existing project scripts.
+2. Resolve build errors and runtime errors.
+3. Check every navigation route.
+4. Check sidebar expansion/collapse and mobile navigation.
+5. Verify responsive behavior at desktop and mobile widths.
+6. Report which files were created or modified.
+7. List any issues that still require attention.
+
+## Completion report
+
+When finished, explain:
+- What was implemented.
+- The main files changed.
+- Which routes work.
+- Which dependencies were installed.
+- How to run and test the application.
+- Any remaining limitations.
+
+Do not start Phase 2 until Phase 1 is working and verified.

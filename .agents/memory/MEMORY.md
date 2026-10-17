@@ -1,0 +1,1 @@
+- [Sentinel Terrain AI scope](sentinel-terrain-ai-scope.md) — IBM Hackathon landslide-warning frontend; do not add live intelligence/backend/auth beyond the requested phase.

@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Sentinel Terrain AI"
+description = "A responsive frontend foundation for a landslide risk assessment and early-warning platform, with shared navigation and placeholder routes for the product's core sections."
+version = "1.0.0"
+id = "artifacts/sentinel-terrain-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24199
+
+[services.development]
+run = "pnpm --filter @workspace/sentinel-terrain-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sentinel-terrain-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sentinel-terrain-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24199"
+BASE_PATH = "/"
