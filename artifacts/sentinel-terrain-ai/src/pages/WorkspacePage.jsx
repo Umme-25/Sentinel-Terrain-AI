@@ -1,8 +1,7 @@
 import PagePlaceholder from "../components/common/PagePlaceholder";
+import DashboardPage from "./DashboardPage";
 
-export function DashboardPage() {
-  return <PagePlaceholder title="Dashboard" />;
-}
+export { DashboardPage };
 
 export function MapPage() {
   return <PagePlaceholder title="GIS Risk Map" />;

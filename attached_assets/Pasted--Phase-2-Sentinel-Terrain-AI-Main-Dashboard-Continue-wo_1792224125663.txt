@@ -1,0 +1,112 @@
+# Phase 2 — Sentinel Terrain AI Main Dashboard
+
+Continue working on the existing Sentinel Terrain AI Replit project. Phase 1 has established the React frontend foundation, application shell, navigation and route placeholders.
+
+Before making changes, inspect the current code and reuse the existing layout, theme, routes, and components. Do not recreate the project or overwrite working Phase 1 functionality.
+
+## Goal
+
+Implement a polished, responsive, functional main dashboard for the landslide risk monitoring and early-warning platform.
+
+## 1. Dashboard layout
+
+Build the dashboard on the existing `/` route.
+
+Include:
+- Page title: "Landslide Monitoring Dashboard"
+- A concise subtitle explaining the monitoring overview.
+- A clearly visible "DEMO DATA" indicator whenever sample data is displayed.
+- A last-updated label only when a meaningful timestamp is available.
+- Consistent spacing, professional cards, and responsive layouts matching Phase 1.
+
+## 2. Summary statistic cards
+
+Create reusable cards for:
+- Total monitored locations
+- High-risk locations
+- Critical-risk locations
+- Active alerts
+
+Each card should include an appropriate Lucide icon, readable value, descriptive label, and sensible status styling.
+
+Use sample values from a dedicated mock data module, not inline constants in the page component. Mark all sample information as demo data. Do not imply the values are live.
+
+## 3. Risk distribution chart
+
+Use Recharts to display location counts across:
+- Low
+- Moderate
+- High
+- Critical
+
+Use consistent risk colors across the dashboard. Include readable labels, tooltips, and a legend where appropriate. Handle empty data gracefully.
+
+## 4. Rainfall and risk trends
+
+Create a responsive historical trend chart using a separate, clearly labeled demo dataset.
+
+Display rainfall and risk information with understandable labels, units, and tooltips. Use separate axes or chart panels if that makes the data clearer.
+
+Do not imply that the sample data represents real sensor readings or validated landslide predictions. If historical data is unavailable, show an informative empty state instead of fabricated real-world results.
+
+## 5. GIS map preview
+
+Use React Leaflet and Leaflet for a compact map preview of monitored locations.
+
+Requirements:
+- Use explicitly labeled demo coordinates that are geographically valid.
+- Show risk-colored location markers and useful popups.
+- Include a compact risk legend.
+- Provide a working link or button to open `/map`.
+- Ensure Leaflet CSS is loaded and map tiles and marker icons render correctly.
+- Handle unavailable locations without assigning random coordinates to real places.
+
+Do not implement a fake heatmap.
+
+## 6. Recent activity sections
+
+Add compact sections for:
+- Recent alerts, including severity, location, message and timestamp when available.
+- Latest risk assessments, including location, category and assessment time.
+- Recent field reports, including report type, location and status.
+
+Use reusable components and a separate mock data module. Add working links to the corresponding pages when appropriate.
+
+If data is empty or missing, show a helpful empty state rather than invented records.
+
+## 7. Code organization and dependencies
+
+- Preserve the existing React Router configuration.
+- Reuse the Phase 1 sidebar, header, theme and common components.
+- Install Recharts only if missing.
+- Install React Leaflet and Leaflet only if missing and needed for the map preview.
+- Keep dashboard mock data separate from UI components.
+- Use reusable components for statistic cards, charts, activity lists, loading indicators and empty/error states.
+- Do not put Flask API calls directly into dashboard components.
+- Do not create backend code or implement ML prediction logic.
+- Keep the project compatible with the existing package manager and scripts.
+
+## 8. Functional and responsive requirements
+
+- All dashboard sections must render correctly.
+- Navigation links must work.
+- The map must have a valid height and render without errors.
+- Charts must resize with their containers.
+- The layout must work on desktop, tablet and mobile.
+- Include loading, empty and error/retry states where applicable.
+- Avoid horizontal overflow, broken imports and console errors.
+
+Do not silently substitute mock data after a real API error. For this phase, use the dedicated mock service explicitly and keep future API integration possible.
+
+## 9. Verification
+
+Run the existing application, resolve build and runtime errors, and verify the dashboard in the Replit preview.
+
+At completion, report:
+1. Files created or modified.
+2. Dependencies installed.
+3. Dashboard features implemented.
+4. How demo data is identified and stored.
+5. Any remaining issues.
+
+Stop after Phase 2. Do not implement the complete GIS map, risk assessment workflow, alerts management, field reporting, or analytics pages yet.
