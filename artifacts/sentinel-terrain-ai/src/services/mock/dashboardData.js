@@ -1,8 +1,17 @@
+export const riskCategories = [
+  { name: "Low", key: "low", color: "var(--low)", hex: "#32765f" },
+  { name: "Moderate", key: "moderate", color: "var(--moderate)", hex: "#8a6818" },
+  { name: "High", key: "high", color: "var(--high)", hex: "#a54d37" },
+  { name: "Critical", key: "critical", color: "var(--critical)", hex: "#8f3342" },
+];
+
+// These separate dashboard aggregates are intentionally retained as supplied;
+// they are not counts of the six illustrative map locations.
 export const riskLevels = [
-  { name: "Low", value: 11, color: "#32765f" },
-  { name: "Moderate", value: 7, color: "#8a6818" },
-  { name: "High", value: 4, color: "#a54d37" },
-  { name: "Critical", value: 2, color: "#8f3342" },
+  { ...riskCategories[0], value: 11 },
+  { ...riskCategories[1], value: 7 },
+  { ...riskCategories[2], value: 4 },
+  { ...riskCategories[3], value: 2 },
 ];
 
 export const summaryMetrics = [
@@ -23,13 +32,17 @@ export const trendData = [
 ];
 
 export const demoSites = [
-  { name: "Demo Site A", latitude: 27.0362, longitude: 88.2631, risk: "Critical", color: "#8f3342" },
-  { name: "Demo Site B", latitude: 27.0586, longitude: 88.2468, risk: "High", color: "#a54d37" },
-  { name: "Demo Site C", latitude: 27.0124, longitude: 88.2797, risk: "Moderate", color: "#8a6818" },
-  { name: "Demo Site D", latitude: 27.0791, longitude: 88.2913, risk: "Low", color: "#32765f" },
-  { name: "Demo Site E", latitude: 27.0247, longitude: 88.2243, risk: "High", color: "#a54d37" },
-  { name: "Demo Site F", latitude: 27.0923, longitude: 88.2322, risk: "Critical", color: "#8f3342" },
+  { id: "demo-site-a", name: "Demo Site A", latitude: 27.0362, longitude: 88.2631, risk_level: "Critical" },
+  { id: "demo-site-b", name: "Demo Site B", latitude: 27.0586, longitude: 88.2468, risk_level: "High" },
+  { id: "demo-site-c", name: "Demo Site C", latitude: 27.0124, longitude: 88.2797, risk_level: "Moderate" },
+  { id: "demo-site-d", name: "Demo Site D", latitude: 27.0791, longitude: 88.2913, risk_level: "Low" },
+  { id: "demo-site-e", name: "Demo Site E", latitude: 27.0247, longitude: 88.2243, risk_level: "High" },
+  { id: "demo-site-f", name: "Demo Site F", latitude: 27.0923, longitude: 88.2322, risk_level: "Critical" },
 ];
+
+export function getRiskCategory(level) {
+  return riskCategories.find((category) => category.name === level) ?? null;
+}
 
 export const recentAlerts = [
   { id: "alert-01", severity: "Critical", site: "Demo Site A", message: "Illustrative rainfall threshold notice", period: "Demo period · Jun 12–18" },

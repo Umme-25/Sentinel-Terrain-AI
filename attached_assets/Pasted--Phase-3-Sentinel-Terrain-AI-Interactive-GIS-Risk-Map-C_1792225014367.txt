@@ -1,0 +1,162 @@
+# Phase 3 — Sentinel Terrain AI Interactive GIS Risk Map
+
+Continue developing the existing Sentinel Terrain AI frontend in this Replit workspace.
+
+Phases 1 and 2 established the React application shell, routing, design system, and dashboard. Inspect the current code before making changes. Reuse the existing components, theme, navigation, dashboard, and data structures. Do not recreate the project or overwrite working features.
+
+Implement Phase 3 only: a functional interactive GIS Risk Map.
+
+## 1. Technology
+
+Use:
+- React + Vite
+- JavaScript
+- React Leaflet and Leaflet
+- Existing Tailwind CSS setup
+- Lucide React icons
+- React Router already configured in the project
+
+Install only missing dependencies. Ensure Leaflet CSS is imported correctly and the map renders correctly inside the existing application layout.
+
+## 2. Map page layout
+
+Implement the existing `/map` route with:
+- Page title: "GIS Risk Map"
+- Short description of the monitored locations.
+- Clearly visible DEMO DATA indicator when mock locations are displayed.
+- Search input for location names.
+- Risk-level filter controls.
+- Interactive map occupying the main content area.
+- Risk color legend.
+- Selected-location details panel.
+- A list or compact results section for filtered locations.
+
+Match the existing Sentinel Terrain AI design system: navy navigation, light workspace, blue actions, consistent typography, spacing, borders, and risk colors.
+
+Make the layout responsive. On mobile, stack the map and details or use a suitable collapsible details panel. Avoid horizontal overflow.
+
+## 3. Location data and mock service
+
+Inspect the existing dashboard mock data and reuse its location records wherever suitable.
+
+If the project does not yet have a reusable location data module, create one under the existing mock service directory.
+
+Use a consistent location structure with fields such as:
+- id
+- name
+- latitude
+- longitude
+- risk_score
+- risk_level
+- updated_at
+- available risk factors
+
+Optional fields may be absent or null.
+
+Use explicitly identified demo records with valid geographic coordinates. Do not invent coordinates for real villages or imply that the sample locations are actual monitored sites. Clearly label illustrative locations as demo data.
+
+Do not duplicate inconsistent location datasets across the dashboard and map.
+
+Keep the data service separate from the React components so it can later be replaced with the Flask API service.
+
+## 4. Interactive Leaflet map
+
+Implement:
+- Map panning and zooming.
+- Markers for locations with valid coordinates.
+- Consistent risk colors: green for low, yellow/amber for moderate, orange/red for high, and dark red for critical.
+- Marker popups showing location name, risk category, risk score when available, last update when available, and available risk factors.
+- A working selection interaction that updates the details panel.
+- A sensible initial map center and zoom based on the demo dataset.
+- A clear empty state if no valid locations are available.
+- Correct Leaflet marker icon rendering.
+- A useful attribution display for the map tile provider.
+
+Use a standard OpenStreetMap tile layer unless the project already has an appropriate configured tile provider. Do not introduce API keys or paid map dependencies unnecessarily.
+
+Do not implement a fake heatmap or imply satellite imagery is being displayed.
+
+## 5. Search and filters
+
+Implement a working location-name search and risk-level filters for:
+- All
+- Low
+- Moderate
+- High
+- Critical
+
+Search and filters must work together and update the visible markers and location list.
+
+Show the number of matching locations. Provide a clear way to reset filters and search.
+
+If the selected location is excluded by the current filters, handle the selection consistently rather than showing stale details.
+
+## 6. Location details panel
+
+When a user selects a marker or a location in the results list, show:
+- Location name.
+- Latitude and longitude when available.
+- Risk score from 0–100 only when provided.
+- Risk category.
+- Last assessment/update timestamp when available.
+- Available rainfall, soil moisture, slope, terrain, historical landslide and satellite-change information.
+- Available contributing factors.
+- Precautions appropriate to the available risk category.
+
+Do not invent sensor readings, model confidence, prediction probabilities, timestamps, or missing environmental information.
+
+Distinguish unavailable values from numeric zero. If an indicator is missing, display "Not available" or omit it.
+
+Provide a clear way to deselect a location or return to the complete list.
+
+## 7. Dashboard integration
+
+Preserve the Phase 2 dashboard and its existing map preview.
+
+If appropriate, reuse the same location data source and make the dashboard preview navigate to `/map`.
+
+Do not redesign or remove unrelated dashboard features.
+
+## 8. Loading, empty and error states
+
+Create appropriate states for:
+- Locations loading.
+- No locations available.
+- No results matching the current filters.
+- Missing or invalid coordinates.
+- Location details unavailable.
+- Data loading or service errors.
+
+Provide a retry control where an actual retry operation exists.
+
+For this phase, explicitly use the demo data service. Do not silently replace failed real API responses with fake data.
+
+## 9. Maintainability
+
+- Use reusable components for the map, markers/popups, risk legend, filter controls and location details.
+- Keep mock data separate from presentation components.
+- Avoid duplicate risk-color definitions; use shared constants or utilities.
+- Preserve existing routes, navigation, dashboard functionality and project scripts.
+- Do not create or modify a Flask backend.
+- Do not implement machine-learning calculations in React.
+- Avoid unnecessary dependencies and complex abstractions.
+
+## 10. Verification
+
+Run the existing app and resolve build and runtime errors.
+
+Verify:
+1. `/map` opens successfully.
+2. The map tiles and marker icons render.
+3. Zoom and pan work.
+4. Marker selection opens a popup and updates the details panel.
+5. Search and risk filters work together.
+6. Missing fields are handled without displaying misleading zero values.
+7. Empty results have a useful state.
+8. The dashboard and its existing navigation still work.
+9. The layout works on desktop and mobile.
+10. There are no broken imports or major console errors.
+
+At completion, report the files changed, dependencies installed, functionality verified, and any remaining issues.
+
+Stop after Phase 3. Do not implement the risk assessment workflow, full alert management, field reporting, analytics, or satellite change detection in this phase.
